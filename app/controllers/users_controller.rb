@@ -9,9 +9,22 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def new
+	def update
+	 	@user = User.find(params[:id])
+		@user.update(user_params)
+		flash.notice = @user.errors.full_messages
 	end
+
+	def new
+		@user = User.new
+	end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
 	private 
+
 	def user_params
 		params.require(:user).permit(:username, :email, :password)
 	end

@@ -7,10 +7,21 @@
 </form> -->
 
 
-<%= form_tag('/users', method: "post") do %> 
-    <%= label_tag 'username' %> 
-    <%= text_field_tag 'username'%> <br>
-    <%= label_tag 'email' 
-    email_field_tag 'email' %> <br>
-	<%= label_tag 'password' text_field_tag 'password' %> <br>
-<% end %>
+  <!--<% form_tag('/users', method: "post") do %> 
+       <%= label_tag 'username' %> 
+       <%= text_field_tag 'username'%> <br>
+       <%= label_tag 'email' %> 
+       <%= email_field_tag 'email' %> <br>
+   	  <%= label_tag 'password'%>
+      <%= text_field_tag 'password' %> <br>
+  <% end %>-->
+
+   <%= form_for @user do |f| %>
+    <%= f.label :username %>: 
+    <%= f.text_field :username, placeholder: 'your username here' %>
+    <%= f.label :email %>: 
+    <%= f.email_field :email %>
+    <%= f.label :password %>:
+    <%= f.text_field :password %>
+    <%= f.button :submit %>
+  <% end %> 
